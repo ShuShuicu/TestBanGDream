@@ -3,3 +3,13 @@ main {
   margin: 0 auto;
   padding: 30px;
 }
+
+.submit-btn {
+  display: block;
+  margin: 0 auto;
+  padding: 0 40px;
+  height: 45px;
+  font-size: 18px;
+  font-weight: bold;  
+  border-radius: 6px;
+}

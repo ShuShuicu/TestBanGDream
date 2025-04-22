@@ -265,41 +265,110 @@ const handleOk = () => {
 </script>
 
 <template>
-
-  <a-divider>选择你追过的番剧</a-divider>
-  <a-checkbox-group v-model:value="checkedList" @change="handleChange">
-    <div class="checkbox-grid">
-      <a-checkbox value="A" class="checkbox-item">轻音少女</a-checkbox>
-      <a-checkbox value="B" class="checkbox-item">孤独摇滚</a-checkbox>
-      <a-checkbox value="C" class="checkbox-item">GBC(少女乐队的呐喊)</a-checkbox>
-      <a-checkbox value="D" class="checkbox-item">MyGO/Ave Mujica</a-checkbox>
-      <a-checkbox value="E" class="checkbox-item">BanG Dream系列</a-checkbox>
-      <a-checkbox value="F" class="checkbox-item">LoveLive全系列</a-checkbox>
-      <a-checkbox value="G" class="checkbox-item">摇滚乃是淑女爱好</a-checkbox>
-      <a-checkbox value="H" class="checkbox-item">吹响吧！上低音号</a-checkbox>
-    </div>
-  </a-checkbox-group>
-  <a-button type="primary" @click="showModal" :disabled="!checkedList.length" class="submit-btn">
-    检测少女乐队浓度
-  </a-button>
-  <a-modal v-model:visible="visible" :title="resultTitle" @ok="handleOk" width="650px" :footer="null">
-    <div class="concentration-result">
-      <h3>{{ selectedContent.title }}</h3>
-      <p class="description">{{ selectedContent.description }}</p>
-      <div class="level-info">
-        <span class="level-label">浓度级别:</span>
-        <span class="level-value">{{ selectedContent.level }}</span>
+  <div class="content">
+    <a-divider>选择追过的番剧</a-divider>
+    <a-checkbox-group v-model:value="checkedList" @change="handleChange">
+      <a-row :gutter="[16, 16]">
+        <a-col :xs="24" :sm="12" :md="6" :lg="6" :xl="6">
+          <a-checkbox value="A">轻音少女</a-checkbox>
+        </a-col>
+        <a-col :xs="24" :sm="12" :md="6" :lg="6" :xl="6">
+          <a-checkbox value="B">孤独摇滚</a-checkbox>
+        </a-col>
+        <a-col :xs="24" :sm="12" :md="6" :lg="6" :xl="6">
+          <a-checkbox value="C">GBC(少女乐队的呐喊)</a-checkbox>
+        </a-col>
+        <a-col :xs="24" :sm="12" :md="6" :lg="6" :xl="6">
+          <a-checkbox value="D">MyGO/Ave Mujica</a-checkbox>
+        </a-col>
+        <a-col :xs="24" :sm="12" :md="6" :lg="6" :xl="6">
+          <a-checkbox value="E">BanG Dream系列</a-checkbox>
+        </a-col>
+        <a-col :xs="24" :sm="12" :md="6" :lg="6" :xl="6">
+          <a-checkbox value="F">LoveLive全系列</a-checkbox>
+        </a-col>
+        <a-col :xs="24" :sm="12" :md="6" :lg="6" :xl="6">
+          <a-checkbox value="G">摇滚乃是淑女爱好</a-checkbox>
+        </a-col>
+        <a-col :xs="24" :sm="12" :md="6" :lg="6" :xl="6">
+          <a-checkbox value="H">吹响吧！上低音号</a-checkbox>
+        </a-col>
+      </a-row>
+    </a-checkbox-group>
+    <a-button type="primary" @click="showModal" :disabled="!checkedList.length" class="submit-btn" style="margin-top: 20px;">
+      检测少女乐队浓度
+    </a-button>
+    <a-modal v-model:visible="visible" :title="resultTitle" @ok="handleOk" width="650px" :footer="null">
+      <div class="concentration-result">
+        <h3>{{ selectedContent.title }}</h3>
+        <p class="description">{{ selectedContent.description }}</p>
+        <div class="level-info">
+          <span class="level-label">浓度级别:</span>
+          <span class="level-value">{{ selectedContent.level }}</span>
+        </div>
+        <div v-if="selectedContent.tags?.length" class="tags">
+          <a-tag v-for="tag in selectedContent.tags" :key="tag" :color="getTagColor(tag)">
+            {{ tag }}
+          </a-tag>
+        </div>
+        <a-button type="primary" @click="handleOk" class="close-btn">了解</a-button>
       </div>
-      <div v-if="selectedContent.tags?.length" class="tags">
-        <a-tag v-for="tag in selectedContent.tags" :key="tag" :color="getTagColor(tag)">
-          {{ tag }}
-        </a-tag>
-      </div>
-      <a-button type="primary" @click="handleOk" class="close-btn">了解</a-button>
-    </div>
-  </a-modal>
+    </a-modal>
+  </div>
 </template>
 
 <style scoped>
 
+.concentration-result {
+  padding: 20px;
+  text-align: center;
+}
+
+.concentration-result h3 {
+  color: #1890ff;
+  margin-bottom: 20px;
+  font-size: 22px;
+}
+
+.description {
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 25px;
+  color: #555;
+}
+
+.level-info {
+  margin: 25px 0;
+  padding: 15px;
+  background: #f0f9ff;
+  border-radius: 6px;
+  display: inline-block;
+}
+
+.level-label {
+  font-weight: bold;
+  margin-right: 10px;
+  font-size: 16px;
+}
+
+.level-value {
+  color: #ff4d4f;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.tags {
+  margin: 25px 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.close-btn {
+  margin-top: 20px;
+  padding: 0 30px;
+  height: 40px;
+  font-size: 16px;
+}
 </style>
