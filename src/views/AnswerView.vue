@@ -515,6 +515,7 @@ const resetQuiz = () => {
             <p v-if="score >= 90">太厉害了！你一定是骨灰级粉丝！</p>
             <p v-else-if="score >= 70">不错哦！对番剧很了解！</p>
             <p v-else-if="score >= 50">还可以，再多看几遍吧！</p>
+            <p v-else-if="score >= 30">差强人意，建议多看几遍~</p>
             <p v-else>加油！建议重温这部番剧~</p>
             <div style="text-align: right; margin-top: 24px;">
                 <a-button @click="resetQuiz" type="primary">返回选择</a-button>
