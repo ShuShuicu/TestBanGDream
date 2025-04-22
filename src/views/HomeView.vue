@@ -295,119 +295,11 @@ const handleOk = () => {
           {{ tag }}
         </a-tag>
       </div>
-      <div class="character-img" v-if="selectedContent.character">
-        <img :src="selectedContent.character" alt="代表角色" />
-      </div>
       <a-button type="primary" @click="handleOk" class="close-btn">了解</a-button>
     </div>
   </a-modal>
 </template>
 
 <style scoped>
-.checkbox-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 15px;
-  margin-bottom: 30px;
-}
 
-.checkbox-item {
-  display: flex;
-  align-items: center;
-  padding: 12px 15px;
-  border-radius: 6px;
-  background: #fff;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s;
-}
-
-.checkbox-item:hover {
-  background: #f0f7ff;
-  transform: translateY(-2px);
-}
-
-.checkbox-item:deep(.ant-checkbox) {
-  transform: scale(1.2);
-}
-
-.checkbox-item:deep(.ant-checkbox-inner) {
-  width: 18px;
-  height: 18px;
-}
-
-.submit-btn {
-  display: block;
-  margin: 0 auto;
-  padding: 0 40px;
-  height: 45px;
-  font-size: 18px;
-  font-weight: bold;
-  border-radius: 6px;
-}
-
-.concentration-result {
-  padding: 20px;
-  text-align: center;
-}
-
-.concentration-result h3 {
-  color: #1890ff;
-  margin-bottom: 20px;
-  font-size: 22px;
-}
-
-.description {
-  font-size: 16px;
-  line-height: 1.8;
-  margin-bottom: 25px;
-  color: #555;
-}
-
-.level-info {
-  margin: 25px 0;
-  padding: 15px;
-  background: #f0f9ff;
-  border-radius: 6px;
-  display: inline-block;
-}
-
-.level-label {
-  font-weight: bold;
-  margin-right: 10px;
-  font-size: 16px;
-}
-
-.level-value {
-  color: #ff4d4f;
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.tags {
-  margin: 25px 0;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.character-img {
-  margin: 25px auto;
-  max-width: 300px;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-.character-img img {
-  width: 100%;
-  display: block;
-}
-
-.close-btn {
-  margin-top: 20px;
-  padding: 0 30px;
-  height: 40px;
-  font-size: 16px;
-}
 </style>
