@@ -207,7 +207,7 @@ const questions = {
         {
             question: "9. 以下哪首是MyGO的歌曲？",
             options: ["迷星叫", "UNITE", "STAR BEAT~", "忘れてやらない"],
-            answer: 3
+            answer: 0
         },
         {
             question: "10. 动画中祥子离开CRYCHIC的原因是？",
