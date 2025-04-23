@@ -165,12 +165,12 @@ const questions = {
     ],
     'D': [ // MyGO/Ave Mujica
         {
-            question: "1. MyGO乐队的键盘手是谁？",
+            question: "1. Ave Mujica乐队的键盘手是谁？",
             options: ["千早爱音", "丰川祥子", "椎名立希", "要乐奈"],
             answer: 1
         },
         {
-            question: "2. CRYCHIC的原主唱是谁？",
+            question: "2. CRYCHIC的主唱是谁？",
             options: ["高松灯", "三角初华", "若叶睦", "八幡海铃"],
             answer: 0
         },
